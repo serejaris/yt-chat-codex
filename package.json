@@ -1,0 +1,18 @@
+{
+  "name": "yt-chat-codex",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,web -c blue,green \"npm run dev -w @yt-chat/server\" \"npm run dev -w @yt-chat/web\"",
+    "build": "npm run build -w @yt-chat/shared && npm run build -w @yt-chat/server && npm run build -w @yt-chat/web",
+    "test": "npm run test -w @yt-chat/shared && npm run test -w @yt-chat/server && npm run test -w @yt-chat/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "typescript": "^5.9.2"
+  }
+}
